@@ -1,66 +1,61 @@
 # PayFlow
 
-> **A visual, interactive architectural explainer of large-scale payment platforms in India.**
+> A visual architecture explainer of India's big payment gateways
 
-👉 **Live Interactive Demo**: **[https://rohanrjoshii.github.io/payflow/](https://rohanrjoshii.github.io/payflow/)**
-
+👉 [Live Demo](https://rohanrjoshii.github.io/payflow/)
 ---
 
 > [!NOTE]
-> **What This Project Is**: PayFlow is an **interactive architecture showcase and visual explainer**—not a live payment processing gateway. It was built to communicate and visualize how modern Indian payment systems (inspired by platforms like Juspay) handle 1B+ transactions daily with 99.999% availability, bridging the gap between high-level payment journeys and deep distributed systems design.
-
+> What this project is: PayFlow is an interactive architecture showcase and visual explainer - and not a live payment processing gateway. This was done as an effort to explain how modern Indian payment gateways (inspired by JusPay) process 1B+ transactions daily with 99.999% availability by bridging the gap between a payment journey and distributed systems design.
 ---
 
-## ⚡ What's Inside
+## ⚡ What's what
 
-1. **Interactive Hero Simulator**: Click to dispatch a test payment and watch the transaction packet travel in real time across the Phone, PayFlow Switch, Issuing Bank, and Merchant with millisecond latency telemetry.
-2. **"How a Payment Actually Travels" (Plain-English Guide)**: A 5-step, jargon-free visual story explaining what really happens in the ~1.8 seconds between tapping "Pay" and receiving a receipt.
-3. **The Four Architecture Deep-Dives**:
-   - **Pillar 01 — Client SDK**: 1-click checkout, Presto UI engine (compiling declarative JSX directly to native views at 60fps), and deterministic state machines.
-   - **Pillar 02 — Core Backend**: Pure functional programming (PureScript / Haskell), monadic pipelines (`Validate >=> Enrich >=> Route >=> Settle`), zero runtime null crashes, and a unified payment typeclass algebra.
-   - **Pillar 03 — Data Intelligence**: ML route scoring across success rate, latency, cost, and load; streaming statistical anomaly detection; and automated self-healing traffic shunting.
-   - **Pillar 04 — Infrastructure Platform**: Active-Active multi-region mesh across Indian metros, sub-50ms cross-region consensus, edge TLS termination, and a custom Infrastructure DSL.
-
+1. Interactive hero simulator that lets you spawn a test payment and see the transaction packet make its journey across the Phone, PayFlow Switch, Issuing Bank, and Merchant in real time with millisecond level telemetry
+2. How a payment actually travels guide (in jargon-free explanations) - a 5 step journey of what really happens in the ~1.8 seconds between tapping Pay and getting a receipt
+3. The 4 pillars of the architecture:
+1. SDK: Everything that powers 1-tap checkout, Presto's UI engine (which compiles JSX to declarative native views at 60fps) + deterministic state machines
+2. Core: Everything that powers the business logic in PureScript, Haskell and monadic pipes (Validate >=> Enrich >=> Route >=> Settle). Zero runtime null crashes. Unified payment type class algebra.
+3. Data Intelligence: ML based route scoring across success rate, latency, cost and load, streaming statistical anomaly detection and self healing traffic shifting
+4. Infrastructure: Active-active India wide multi-region mesh, sub 50ms consensus across regions, edge TLS termination, Infrastructure DSL
 ---
 
-## 🛠️ Actual Implementation Stack (How this site is built)
+## 🛠️ Actual implementation stack (How this site is built)
 
-This project runs 100% in the client's browser with **zero backend server required**:
+Nothing runs on a backend. This entire app runs in your browser. All the cool interactivity you see is powered by your device's JS engine. Below is the stack used for building this site itself.
 
-| Layer | Technology | Details |
+| Layer | Tech | Details |
 |---|---|---|
-| **Structure** | Semantic HTML5 | Clean document outline, accessibility attributes |
-| **Styling** | Vanilla CSS3 | Custom Properties (CSS variables), CSS Grid, Flexbox, Keyframe animations |
-| **Logic** | Vanilla JavaScript (ES6+) | Native ES Modules (`import`/`export`), zero npm runtime packages |
-| **Routing** | Client-Side Hash Router | Hash-based SPA routing (`#/`, `#/sdk`, `#/backend`, etc.) |
-| **Visualizations** | HTML5 Canvas API | Hardware-accelerated streaming anomaly time-series chart |
-| **Hosting** | GitHub Pages | Free, static HTTPS delivery with global CDN |
-
+| Structure | Semantic HTML5 | Proper document outline and accessibility |
+| Styling | Vanilla CSS3 | Custom Properties (CSS variables), CSS Grid, Flexbox, Keyframe animations |
+| Logic | Vanilla JavaScript (ES6+) | Native ES modules (import/export), no npm packages |
+| Routing | Client Side Hash Router | #/ sdk | backend etc |
+| Visualizations | HTML5 Canvas API | Hardware accelerated streaming anomaly time series chart |
+| Hosting | GitHub Pages | CDN over HTTPS |
 ---
 
-## 🏛️ Conceptual Tech Stack (The Systems Being Explained)
+## 🏛️ Conceptual tech stack (The things that we are explaining 😂)
 
-| Layer | Technologies | What It Does |
+| Layer | Technologies | Description |
 |---|---|---|
-| **Client SDK** | Presto UI, React JSX, Mobile Secure Enclave | Compiles declarative markup directly to 60fps native Android/iOS views without bridge overhead; hardware-backed tokenization. |
-| **Core Backend** | PureScript, Haskell, Akka Actor Model | Mathematical business logic expressed as composable monadic pipelines with compile-time safety and zero null exceptions. |
-| **Data Intelligence** | Python, Scikit-learn, Streaming EWMA | Dynamic 4-factor objective function scoring gateways in real-time; sub-5-second anomaly detection and autonomous rerouting. |
-| **Infrastructure** | Multi-DC Mesh, Kubernetes, Envoy, Infra DSL | Active-active Pan-India topology (Mumbai, Chennai, Bangalore, Delhi) with sub-50ms sync and declarative GitOps management. |
-
+| Client SDK | Presto, React JSX, Mobile Secure Enclave | Compile JSX to 60fps native Android/iOS Android Views directly without bridges |
+| Core Backend | PureScript, Haskell, Akka Actor Model | Express business logic as mathematical functions through monadic pipes (Validate >=> Enrich >=> Route >=> Settle). Compile-time null safety |
+| Data Intelligence | Python, Scikit-learn, Streaming EWMA | Anomaly detection and traffic shifting across 4 factors (success rate, latency, cost, load) at sub 5 second resolution |
+| Infrastructure | Multi-DC Mesh, Kubernetes, Envoy, Infra DSL | Active-active Pan-India topology (Mumbai, Chennai, Bangalore, Delhi) with <50ms consensus |
 ---
 
-## 🚀 Running Locally
+## 🚀 Running the app locally
 
-Because this is a pure static web application using ES Modules, any local static file server will run it:
+Since this is a static site (no backend required) it can be run on any local static server. The code uses native ES modules. So you need a server that serves ES modules correctly (ExpressJS etc)
 
 ```bash
-# Using npx (Node.js)
+# Using npx
 npx serve . -l 3000
 
-# OR using Python
+# Using Python
 python3 -m http.server 3000
 
-# OR using VS Code
-# Right click index.html -> "Open with Live Server"
+# Using VS Code
+# Right click index.html -> Open with Live Server
 ```
-Then open `http://localhost:3000` in your browser.
+Then navigate to: http://localhost:3000
