@@ -1,0 +1,242 @@
+/* ============================================
+   PayFlow Layout — v2
+   Asymmetric, editorial, intentional whitespace
+   ============================================ */
+
+/* ---------- Container ---------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+.container-sm { max-width: 880px; }
+.container-lg { max-width: 1400px; }
+
+/* ---------- Sections ---------- */
+.section {
+  padding: var(--space-24) 0;
+  position: relative;
+}
+
+.section-sm {
+  padding: var(--space-16) 0;
+}
+
+.section-lg {
+  padding: var(--space-32) 0;
+}
+
+.section-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section headers — left-aligned by default, not centered */
+.section-header {
+  margin-bottom: var(--space-12);
+  max-width: 640px;
+}
+
+.section-header.centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-3);
+}
+
+.section-header p {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+/* Section label — minimal, no green dot template look */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+  opacity: 0.7;
+}
+
+/* ---------- Grid System ---------- */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ---------- Flex ---------- */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+.gap-10 { gap: var(--space-10); }
+.gap-12 { gap: var(--space-12); }
+
+/* ---------- Spacing ---------- */
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+.mt-16 { margin-top: var(--space-16); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+.p-10 { padding: var(--space-10); }
+
+/* ---------- Display ---------- */
+.hidden { display: none; }
+.block { display: block; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.overflow-hidden { overflow: hidden; }
+.text-center { text-align: center; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* ---------- Background Decorations — v2 ---------- */
+
+/* Killed: bg-grid (too generic). Replaced with nothing or very faint dots */
+.bg-grain {
+  position: relative;
+}
+
+/* Single radial glow — used behind headlines only */
+.bg-glow-top {
+  position: relative;
+}
+.bg-glow-top::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(0, 240, 255, 0.03), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Payment rail motif — a thin horizontal line with flowing light */
+.rail-line {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  position: relative;
+  overflow: hidden;
+  margin: var(--space-8) 0;
+}
+
+.rail-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  animation: railFlow 4s linear infinite;
+}
+
+/* Vertical rail — for sidebars / section dividers */
+.rail-vertical {
+  width: 1px;
+  height: 100%;
+  background: var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.rail-vertical::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, var(--color-accent), transparent);
+  animation: railFlow 3s linear infinite;
+  /* reusing railFlow with vertical transform */
+  animation-name: railFlowV;
+}
+
+@keyframes railFlowV {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(800%); }
+}
+
+/* ---------- Dividers ---------- */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: var(--space-8) 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+
+  .section { padding: var(--space-16) 0; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 var(--space-5); }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 { grid-template-columns: 1fr; }
+
+  h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+  h3 { font-size: var(--text-xl); }
+
+  .section { padding: var(--space-12) 0; }
+  .section-header { margin-bottom: var(--space-8); }
+  .hide-mobile { display: none !important; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  .container { padding: 0 var(--space-4); }
+}

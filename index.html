@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>PayFlow — Large-Scale Payment Platform Architecture</title>
+  <meta name="description" content="An interactive deep-dive into how large-scale Indian payment platforms process over a billion transactions with 99.999% uptime — from SDK to infrastructure.">
+  <meta name="keywords" content="payment platform, fintech, SDK, functional programming, data science, infrastructure, India payments, UPI, payment gateway">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PayFlow — Payment Platform Architecture">
+  <meta property="og:description" content="Interactive showcase of large-scale payment infrastructure: SDK, FP Backend, ML Intelligence, Multi-DC Platform.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230066ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white' font-family='system-ui' font-weight='700'>P</text></svg>">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#/" class="navbar-logo" id="logo">
+        <span class="navbar-logo-icon">P</span>
+        PayFlow
+      </a>
+
+      <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar-nav" id="navLinks">
+        <li><a href="#/" class="active" id="nav-home">Home</a></li>
+        <li><a href="#/sdk" id="nav-sdk">SDK</a></li>
+        <li><a href="#/backend" id="nav-backend">Backend</a></li>
+        <li><a href="#/datascience" id="nav-datascience">Data Science</a></li>
+        <li><a href="#/infrastructure" id="nav-infra">Infrastructure</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main App Container -->
+  <main id="app" style="padding-top: 64px;">
+    <!-- Pages are dynamically rendered here by the SPA router -->
+  </main>
+
+  <!-- App Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
