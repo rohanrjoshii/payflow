@@ -1,12 +1,25 @@
-# PayFlow — Large-Scale Payment Platform Architecture
+# PayFlow
 
-An interactive architectural explainer of high-throughput Indian payment systems (inspired by production platforms like Juspay), showcasing how modern platforms process 1B+ transactions daily with five-nines (99.999%) availability.
+> **A visual, interactive architectural explainer of large-scale payment platforms in India.**
+
+👉 **Live Interactive Demo**: **[https://rohanrjoshii.github.io/payflow/](https://rohanrjoshii.github.io/payflow/)**
 
 ---
 
-## ⚡ Live Demo
-Hosted directly on GitHub Pages with zero backend dependencies:
-👉 **[Launch PayFlow Live](https://rohanrjoshii.github.io/payflow/)**
+> [!NOTE]
+> **What This Project Is**: PayFlow is an **interactive architecture showcase and visual explainer**—not a live payment processing gateway. It was built to communicate and visualize how modern Indian payment systems (inspired by platforms like Juspay) handle 1B+ transactions daily with 99.999% availability, bridging the gap between high-level payment journeys and deep distributed systems design.
+
+---
+
+## ⚡ What's Inside
+
+1. **Interactive Hero Simulator**: Click to dispatch a test payment and watch the transaction packet travel in real time across the Phone, PayFlow Switch, Issuing Bank, and Merchant with millisecond latency telemetry.
+2. **"How a Payment Actually Travels" (Plain-English Guide)**: A 5-step, jargon-free visual story explaining what really happens in the ~1.8 seconds between tapping "Pay" and receiving a receipt.
+3. **The Four Architecture Deep-Dives**:
+   - **Pillar 01 — Client SDK**: 1-click checkout, Presto UI engine (compiling declarative JSX directly to native views at 60fps), and deterministic state machines.
+   - **Pillar 02 — Core Backend**: Pure functional programming (PureScript / Haskell), monadic pipelines (`Validate >=> Enrich >=> Route >=> Settle`), zero runtime null crashes, and a unified payment typeclass algebra.
+   - **Pillar 03 — Data Intelligence**: ML route scoring across success rate, latency, cost, and load; streaming statistical anomaly detection; and automated self-healing traffic shunting.
+   - **Pillar 04 — Infrastructure Platform**: Active-Active multi-region mesh across Indian metros, sub-50ms cross-region consensus, edge TLS termination, and a custom Infrastructure DSL.
 
 ---
 
@@ -25,29 +38,14 @@ This project runs 100% in the client's browser with **zero backend server requir
 
 ---
 
-## 🏛️ The Architecture Being Explained (Conceptual Tech Stack)
+## 🏛️ Conceptual Tech Stack (The Systems Being Explained)
 
-The project walks through the real-world four-pillar architecture of India's payment rails:
-
-### 1. Client SDK (Payment Experience)
-- **Presto Framework**: Functional UI compiler turning declarative JSX into 60fps native Android & iOS views without JavaScript bridge overhead.
-- **Client Security**: Hardware-backed KeyStore/Secure Enclave for local tokenization and biometric authentication.
-- **Finite State Automaton**: Strict deterministic lifecycle (`IDLE` → `INITIATED` → `AUTHENTICATING` → `AUTHORIZED` → `CAPTURED` → `SETTLED`).
-
-### 2. Core Backend (Business Logic & Orchestration)
-- **Functional Programming**: PureScript / Haskell for mathematical correctness and zero runtime null errors.
-- **Monadic Pipelines**: State transformations expressed as clean mathematical compositions (`validate >=> enrich >=> route >=> process >=> settle`).
-- **Payment Algebra**: Unified typeclass interface abstracting 100+ gateways, card networks, and UPI providers into one polymorphic API.
-
-### 3. Data Science & Telemetry (Intelligence Layer)
-- **ML Route Scoring**: 4-factor real-time objective function balancing success rates, switch latencies, costs, and cluster loads.
-- **Streaming Anomaly Detection**: Real-time time-series monitoring catching bank degradations in `< 5 seconds`.
-- **Closed-Loop Self-Healing**: Automated traffic shunting away from failing gateways to healthy fallbacks with zero manual intervention.
-
-### 4. Distributed Infrastructure (Five-Nines SLA)
-- **Topology**: Active-Active multi-region mesh across Indian metros (Mumbai, Chennai, Bangalore, Delhi) with sub-50ms sync.
-- **Edge PoPs**: Handshake & TLS termination at the edge, reducing P99 latency by 30%.
-- **Infrastructure DSL**: Custom declarative language replacing boilerplate Kubernetes and Terraform across 5,000+ microservices.
+| Layer | Technologies | What It Does |
+|---|---|---|
+| **Client SDK** | Presto UI, React JSX, Mobile Secure Enclave | Compiles declarative markup directly to 60fps native Android/iOS views without bridge overhead; hardware-backed tokenization. |
+| **Core Backend** | PureScript, Haskell, Akka Actor Model | Mathematical business logic expressed as composable monadic pipelines with compile-time safety and zero null exceptions. |
+| **Data Intelligence** | Python, Scikit-learn, Streaming EWMA | Dynamic 4-factor objective function scoring gateways in real-time; sub-5-second anomaly detection and autonomous rerouting. |
+| **Infrastructure** | Multi-DC Mesh, Kubernetes, Envoy, Infra DSL | Active-active Pan-India topology (Mumbai, Chennai, Bangalore, Delhi) with sub-50ms sync and declarative GitOps management. |
 
 ---
 
