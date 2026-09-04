@@ -85,6 +85,9 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .pillar-card .pillar-number {

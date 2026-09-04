@@ -217,7 +217,7 @@ export function renderHomePage(container) {
         </div>
 
         <div class="grid grid-2 animate-on-scroll">
-          <div class="pillar-card" onclick="window.location.hash='/sdk'" id="pillar-sdk">
+          <a href="#/sdk" class="pillar-card" id="pillar-sdk">
             <span class="pillar-number">01</span>
             <span class="pillar-card-tag sdk">PILLAR 01 // CLIENT SDK</span>
             <h3>Frictionless Payments</h3>
@@ -228,9 +228,9 @@ export function renderHomePage(container) {
               <li>Deterministic Finite State Machine</li>
               <li>Zero Bridge Thread Bottlenecks</li>
             </ul>
-          </div>
+          </a>
 
-          <div class="pillar-card" onclick="window.location.hash='/backend'" id="pillar-backend">
+          <a href="#/backend" class="pillar-card" id="pillar-backend">
             <span class="pillar-number">02</span>
             <span class="pillar-card-tag backend">PILLAR 02 // BACKEND ORCHESTRATION</span>
             <h3>Functional Programming</h3>
@@ -241,9 +241,9 @@ export function renderHomePage(container) {
               <li>Polymorphic Payment Typeclass Algebra</li>
               <li>100+ Gateway & Bank Integrations</li>
             </ul>
-          </div>
+          </a>
 
-          <div class="pillar-card" onclick="window.location.hash='/datascience'" id="pillar-ds">
+          <a href="#/datascience" class="pillar-card" id="pillar-ds">
             <span class="pillar-number">03</span>
             <span class="pillar-card-tag datascience">PILLAR 03 // INTELLIGENCE</span>
             <h3>Automated Operations</h3>
@@ -254,9 +254,9 @@ export function renderHomePage(container) {
               <li>Autonomous Self-Healing Traffic Shunting</li>
               <li>Predictive Payment Instrument Assist</li>
             </ul>
-          </div>
+          </a>
 
-          <div class="pillar-card" onclick="window.location.hash='/infrastructure'" id="pillar-infra">
+          <a href="#/infrastructure" class="pillar-card" id="pillar-infra">
             <span class="pillar-number">04</span>
             <span class="pillar-card-tag infrastructure">PILLAR 04 // PLATFORM</span>
             <h3>Five-Nines Infrastructure</h3>
@@ -267,7 +267,7 @@ export function renderHomePage(container) {
               <li>Custom Infrastructure DSL for 5,000+ Services</li>
               <li>100,000 TPS Engineered Platform Ceiling</li>
             </ul>
-          </div>
+          </a>
         </div>
       </div>
     </section>

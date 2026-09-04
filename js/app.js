@@ -29,50 +29,64 @@ class PayFlowApp {
     this.router.addRoute('/datascience', renderDataSciencePage);
     this.router.addRoute('/infrastructure', renderInfrastructurePage);
 
-    // Handle initial route
+    // Initial navigation based on current hash
     this.router.handleRoute();
 
-    // Mobile nav toggle
+    // Setup mobile nav toggle & direct click listeners
     const toggle = document.getElementById('navToggle');
     const nav = document.getElementById('navLinks');
     if (toggle && nav) {
-      toggle.addEventListener('click', () => {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         nav.classList.toggle('open');
       });
 
-      // Close mobile nav on link click
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+      // Close mobile nav when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !toggle.contains(e.target)) {
           nav.classList.remove('open');
-        });
+        }
       });
     }
 
-    console.log('🚀 PayFlow initialized');
+    // Intercept nav links to guarantee routing triggers
+    document.querySelectorAll('.navbar a, .footer a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#/')) {
+          const path = href.slice(1);
+          this.router.navigate(path);
+          if (nav) nav.classList.remove('open');
+        }
+      });
+    });
+
+    console.log('🚀 PayFlow initialized successfully');
   }
 
   initNavbar() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
 
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > 50) {
+      if (window.scrollY > 30) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
-
-      lastScroll = currentScroll;
     }, { passive: true });
   }
 }
 
-// Boot
-document.addEventListener('DOMContentLoaded', () => {
+// Robust boot: handles both DOMContentLoaded and already-loaded states
+function boot() {
   const app = new PayFlowApp();
   app.init();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', boot);
+} else {
+  // Document already ready (common with type="module" or cached loads)
+  boot();
+}

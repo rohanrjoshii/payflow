@@ -79,10 +79,10 @@ export function drawLineChart(canvas, data, options = {}) {
   const w = rect.width - padding.left - padding.right;
   const h = rect.height - padding.top - padding.bottom;
 
-  const values = data.map(d => d.value);
-  const maxVal = Math.max(...values) * 1.1;
-  const minVal = Math.min(...values) * 0.9;
-  const range = maxVal - minVal;
+  const values = data.map(d => (typeof d === 'number' ? d : (d && d.value !== undefined ? d.value : 0)));
+  const maxVal = Math.max(...values) * 1.05;
+  const minVal = Math.min(...values) * 0.95;
+  const range = (maxVal - minVal) || 1;
 
   function xPos(i) {
     return padding.left + (i / (data.length - 1)) * w;
