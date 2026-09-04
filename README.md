@@ -34,7 +34,7 @@ Nothing runs on a backend. This entire app runs in your browser. All the cool in
 | Hosting | GitHub Pages | CDN over HTTPS |
 ---
 
-## 🏛️ Conceptual tech stack (The things that we are explaining 😂)
+## 🏛️ Conceptual tech stack (The things that we are explaining)
 
 | Layer | Technologies | Description |
 |---|---|---|
